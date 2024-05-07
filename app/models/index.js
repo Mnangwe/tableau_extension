@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
     {
         host: dbConfig.HOST,
         dialectModule: require('pg'),
+        dialect: dbConfig.dialect,
         operatorsAliases: false,
         pool: {
             max: dbConfig.pool.max,
