@@ -8,15 +8,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
+app.get("/", (req,res)=> res.send("Hello World"))
+//app.get('/', (req, res, next) => {
+//    res.render('index');
+//});
 
-app.get('/', (req, res, next) => {
-    res.render('index');
-});
-
-app.get('/api/comments', (req, res, next) => {
-    res.render('comment');
-});
+//app.get('/api/comments', (req, res, next) => {
+ //   res.render('comment');
+//});
 
 const db = require("./app/models/index.js");
 db.sequelize.sync()
