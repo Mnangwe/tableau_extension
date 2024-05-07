@@ -1,0 +1,12 @@
+section {
+    background-color: #3a7456;
+    padding: 10px;
+}
+h1.text-white {
+    text-align: center;
+}
+.btn-lg {
+    background-color: #3a7456;
+    border-color: #3a7456;
+    color: #ffffff;
+}
