@@ -7,8 +7,9 @@ app.set('port', process.env.PORT || 4300);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.set("views", __dirname + "/views")
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + "public"));
 
 app.get('/', (req, res, next) => {
    res.render('index');
