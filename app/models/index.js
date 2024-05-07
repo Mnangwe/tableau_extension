@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     dbConfig.PASSWORD,
     {
         host: dbConfig.HOST,
-        dialect: dbConfig.dialect,
+        dialectModule: require('pg'),
         operatorsAliases: false,
         pool: {
             max: dbConfig.pool.max,
