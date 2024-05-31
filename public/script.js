@@ -10,21 +10,24 @@ let data = {
     prev_y: "Prior Year"
 }
 
+//  INITIALIZING TABLEAU FUNCTIONALITY or INTERACTION
 
-tableau.extensions.initializeAsync().then(async () => {
-    console.log("Hey There!")
-    let worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-    let worksheet = worksheets.find(ws => ws.name == data.ws_name);
-    console.log(worksheet)
-    let params = await worksheet.getParametersAsync();
-    let param_q = params.find(p => p.name == data.current_q);
-    let param_y = params.find(p => p.name == data.current_y);
-    console.log(param_q.value)
-    // let quarter = `${}`
-    worksheet.addEventListener(
-        tableau.TableauEventType.MarkSelectionChanged,
-        handler
-    );
+tableau.extensions.initializeAsync()
+    .then(async () => {
+        
+        console.log(tableau.extensions.worksheetContent)
+        let worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+        let worksheet = worksheets.find(ws => ws.name == data.ws_name);
+        console.log(worksheet)
+        let params = await worksheet.getParametersAsync();
+        let param_q = params.find(p => p.name == data.current_q);
+        let param_y = params.find(p => p.name == data.current_y);
+        
+        // let quarter = `${}`
+        worksheet.addEventListener(
+            tableau.TableauEventType.MarkSelectionChanged,
+            handler
+        );
 });
 
 const handler = async e => {
