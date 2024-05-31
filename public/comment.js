@@ -30,9 +30,7 @@ function create(){
     }).then(res => res.json())
         .then(data => {
             console.log(data);
+            window.location.href = `mailto:${email}?subject=Please Review ${h} section!&body=Hi <Pease update the name>, %0a %0a Action Required on Question: ${q} %0a %0a ${c}`
             tableau.extensions.ui.closeDialog('Hey there');
-            let str = email.slice(1, text.indexOf("@"));
-            let res = str.charAt(0).toUpperCase() + str.slice(1);
-            window.location = `mailto:${email}?subject=Please Review ${h} section!&body=Hi ${res}, %0a %0a Action Required on Question: ${q} %0a %0a ${c}`
         });
 }
